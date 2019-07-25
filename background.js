@@ -46,21 +46,21 @@ function add_warning() {
 	alert_code += "var t = ' <tt>Intercepting requests</tt><br />';";
 	alert_code +=  "t += '<tt>Replacing with query:  ' + q  + '</tt><br />';";
 	alert_code += "div.innerHTML = t;";
-	browser.tabs.executeScript({ code: alert_code });
+	chrome.tabs.executeScript({ code: alert_code });
 }
 
 function remove_old_results() {
 	var clear_code  = "console.log('trying to remove old results');";
 	clear_code += "var query=\"" + query + "\";";
 	clear_code += "var d = document.getElementById('pagelet_loader_u_ps_0_3_0_browse_result_below_fold');";
-	clear_code += "var e = document.getElementById('BrowseResultsContainer');";
+	clear_code += "var e = document.getElementById('ChromeesultsContainer');";
 	clear_code += "var f = document.getElementById('bootstrap_entity_module');";
 	clear_code += "var g = document.getElementById('u_ps_jsonp_3_3_0_browse_result_below_fold');";
 	clear_code += "if(d) { d.innerHTML = '<h3 style=\"padding: 3px\">Results for ' + query + '</h3>'; }";
 	clear_code += "if(e) { e.innerHTML = ''; }";
 	clear_code += "if(f) { f.innerHTML = ''; }";
 	clear_code += "if(g) { g.innerHTML = ''; }";	
-	browser.tabs.executeScript({ code: clear_code });
+	Chrome.tabs.executeScript({ code: clear_code });
 }
 
 function redirect(requestDetails) {
